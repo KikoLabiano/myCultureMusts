@@ -2,18 +2,91 @@
 
 <head>
   <title>My culture musts</title>
-  <link type="text/html" href="../node_modules/material-icons/iconfont/material-icons.css">
-  <link rel="stylesheet" href="/stylesheets/materialize.css">
-  <script type="javascript" src="javascripts/materialize.min.js"></script>
-  <script type="javascript" src="javascripts/prueba.js"></script>
+  <link rel="stylesheet" href="stylesheets/iconfont/material-icons.css">
+  <link rel="stylesheet" href="stylesheets/materialize.css">
+  <script type="text/javascript" src="javascripts/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/materialize/materialize.min.js"></script>
+  <script type="text/javascript" src="javascripts/init.js"></script>
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
-  <a class="waves-effect waves-light btn">button</a>
-<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
-<a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
+
+  <nav>
+    <!-- navbar content here  -->
+  </nav>
+
+  <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view">
+        <div class="background">
+          <!--<img src="images/office.jpg">-->
+        </div>
+        <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
+        <a href="#name"><span class="white-text name">John Doe</span></a>
+        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div>
+    </li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+  <!--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Botón</a>
+<a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3 offset-s1"><a class="active" href="#test1">Películas</a></li>
+          <li class="tab col s3"><a href="#test2">Libros</a></li>
+          <li class="tab col s3"><a href="#test3">Música</a></li>
+        </ul>
+      </div>
+      <div id="test1" class="col s12">
+        <table class="striped table-responsive highlight">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Year</th>
+              <th>Director</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Saving private Ryan</td>
+              <td>1998</td>
+              <td>Steven Spielberg</td>
+            </tr>
+            <tr>
+              <td>Boyhood</td>
+              <td>2014</td>
+              <td>Richard Linklater</td>
+            </tr>
+            <tr>
+              <td>The Thin Red Line</td>
+              <td>1998</td>
+              <td>Terrence Malick</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div id="test2" class="col s12">Libros</div>
+      <div id="test3" class="col s12">Música</div>
+    </div>
+    <div class="row">
+      <div class="col s12 offset-s6"></div>
+        <a class="waves-effect waves-light btn"><i class="material-icons right">add</i>Add movie</a>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
