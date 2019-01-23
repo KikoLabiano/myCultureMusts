@@ -22,19 +22,34 @@
           <!--<img src="images/office.jpg">-->
         </div>
         <!-- <a href="#user"><img class="circle" src="images/yuna.jpg"></a> -->
-        <a href="#name"><span class="white-text name">John Doe</span></a>
-        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        <a href="#name">
+          <span class="white-text name">John Doe</span>
+        </a>
+        <a href="#email">
+          <span class="white-text email">jdandturk@gmail.com</span>
+        </a>
       </div>
     </li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
+    <li>
+      <a href="#!">
+        <i class="material-icons">cloud</i>First Link With Icon</a>
+    </li>
+    <li>
+      <a href="#!">Second Link</a>
+    </li>
     <li>
       <div class="divider"></div>
     </li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li>
+      <a class="subheader">Subheader</a>
+    </li>
+    <li>
+      <a class="waves-effect" href="#!">Third Link With Waves</a>
+    </li>
   </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  <a href="#" data-target="slide-out" class="sidenav-trigger">
+    <i class="material-icons">menu</i>
+  </a>
 
   <!--<a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Botón</a>
 <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>-->
@@ -43,13 +58,19 @@
     <div class="row">
       <div class="col s12">
         <ul class="tabs">
-          <li class="tab col s3 offset-s1"><a class="active" href="#test1">Películas</a></li>
-          <li class="tab col s3"><a href="#test2">Libros</a></li>
-          <li class="tab col s3"><a href="#test3">Música</a></li>
+          <li class="tab col s3 offset-s1">
+            <a class="active" href="#test1">Películas</a>
+          </li>
+          <li class="tab col s3">
+            <a href="#test2">Libros</a>
+          </li>
+          <li class="tab col s3">
+            <a href="#test3">Música</a>
+          </li>
         </ul>
       </div>
       <div id="test1" class="col s12">
-        <table class="striped table-responsive highlight">
+        <table class="striped table-responsive highlight" id="tblMovies">
           <thead>
             <tr>
               <th>Name</th>
@@ -82,10 +103,47 @@
     </div>
     <div class="row">
       <div class="col s12 offset-s6"></div>
-        <a class="waves-effect waves-light btn"><i class="material-icons right">add</i>Add movie</a>
-      </div>
+      <a class="waves-effect waves-light btn modal-trigger" data-target="modal1">
+        <i class="material-icons right">add</i>Add movie</a>
     </div>
   </div>
+  </div>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Add a movie</h4>
+
+      <div class="row">
+        <div class="row"></div>
+        <div class="input-field col s12">
+          <input id="movie_title" type="text" class="validate">
+          <label for="movie_title">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="movie_director" type="text" class="materialize-textarea validate"></textarea>
+          <label for="movie_director">Director</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="movie_year" type="text" class="materialize-textarea validate"></textarea>
+          <label for="movie_year">Year</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="movie_calification" type="text" class="materialize-textarea validate"></textarea>
+          <label for="movie_calification">Calification</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+    </div>
+  </div>
+ 
 
 </body>
 
