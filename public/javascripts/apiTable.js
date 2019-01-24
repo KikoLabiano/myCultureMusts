@@ -13,6 +13,22 @@ var tableModule = (function () {
                     $(domElt).append(tableAPI.createRows(data));
                 }
             });
+        },
+        insertElement: (type, data) =>{
+            $.ajax({
+                type: 'post',
+                url: '/' + type,
+                data: data,
+                dataType: "json",
+                success: function (data) {
+                    console.log("Registro insertado");
+                    //$(domElt).append(tableAPI.createRows(data));
+                },
+                error:function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                  }
+            });
         }
     }
 
