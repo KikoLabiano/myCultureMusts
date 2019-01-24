@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="stylesheets/materialize.css">
   <script type="text/javascript" src="javascripts/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/materialize/materialize.min.js"></script>
+  <script type="text/javascript" src="javascripts/apiTable.js"></script>
   <script type="text/javascript" src="javascripts/init.js"></script>
 </head>
 
@@ -59,47 +60,34 @@
       <div class="col s12">
         <ul class="tabs">
           <li class="tab col s3 offset-s1">
-            <a class="active" href="#test1">Películas</a>
+            <a class="active" href="#movies">Movies</a>
           </li>
           <li class="tab col s3">
-            <a href="#test2">Libros</a>
+            <a href="#books">Books</a>
           </li>
           <li class="tab col s3">
-            <a href="#test3">Música</a>
+            <a href="#music">Music</a>
           </li>
         </ul>
       </div>
-      <div id="test1" class="col s12">
+      <div id="movies" class="col s12">
         <table class="striped table-responsive highlight" id="tblMovies">
           <thead>
             <tr>
+              <th>Id</th>
               <th>Name</th>
               <th>Year</th>
               <th>Director</th>
+              <th>Rating (Over 10)</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Saving private Ryan</td>
-              <td>1998</td>
-              <td>Steven Spielberg</td>
-            </tr>
-            <tr>
-              <td>Boyhood</td>
-              <td>2014</td>
-              <td>Richard Linklater</td>
-            </tr>
-            <tr>
-              <td>The Thin Red Line</td>
-              <td>1998</td>
-              <td>Terrence Malick</td>
-            </tr>
+          <tbody>            
           </tbody>
         </table>
 
       </div>
-      <div id="test2" class="col s12">Libros</div>
-      <div id="test3" class="col s12">Música</div>
+      <div id="books" class="col s12">Books</div>
+      <div id="music" class="col s12">Music</div>
     </div>
     <div class="row">
       <div class="col s12 offset-s6"></div>
