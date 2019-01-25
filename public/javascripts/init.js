@@ -19,6 +19,6 @@ function bindings() {
             movie_director: $("#movie_director").val(),
             movie_year: $("#movie_year").val(),
             movie_rating: $("#movie_rating").val()
-        }));
+        }),$("#tblMovies tbody"));
     });
 }

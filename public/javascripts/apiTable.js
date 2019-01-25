@@ -2,8 +2,14 @@ var tableModule = (function () {
     "use strict";
 
     var tableAPI = {
-        createRows: (data) => {
-            return data.map(row => `<tr>${getCells(row, 'td')}</tr>`).join('')
+        createRows: (domElt,data) => {
+            let rows = data.map(row => `<tr>${getCells(row, 'td')}</tr>`).join('');
+            $(`${domElt} tr`).click(function(){
+                //Open modal
+                //$(this).remove();
+                //return false;
+            });
+            return rows;
         },
         getElements: (domElt,type) => {
             $.ajax({
@@ -14,7 +20,7 @@ var tableModule = (function () {
                 }
             });
         },
-        insertElement: (type, data) =>{
+        insertElement: (type, data, domElt) =>{
             $.ajax({
                 type: 'post',
                 url: '/' + type,
@@ -22,7 +28,7 @@ var tableModule = (function () {
                 dataType: "json",
                 success: function (data) {
                     console.log("Registro insertado");
-                    //$(domElt).append(tableAPI.createRows(data));
+                    $(domElt).append(tableAPI.createRows(data));
                 },
                 error:function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
@@ -37,6 +43,7 @@ var tableModule = (function () {
         Object.values(data).map(c => {
             cells += `<${type}>${c}</${type}>`;
         }).join('');
+        cells += `<${type}><i class="material-icons right">delete</i></${type}>`
         return cells;
     }
     return tableAPI;
