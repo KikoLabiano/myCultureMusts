@@ -74,14 +74,13 @@
         <table class="striped table-responsive highlight" id="tblMovies">
           <thead>
             <tr>
-              <th>Id</th>
               <th>Name</th>
               <th>Year</th>
               <th>Director</th>
               <th>Rating (Over 10)</th>
             </tr>
           </thead>
-          <tbody>            
+          <tbody>
           </tbody>
         </table>
 
@@ -104,34 +103,38 @@
       <div class="row">
         <div class="row"></div>
         <div class="input-field col s12">
+          <i class="material-icons prefix">movie</i>
           <input id="movie_title" type="text" class="validate">
           <label for="movie_title">Title</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="movie_director" type="text" class="materialize-textarea validate"></textarea>
+          <i class="material-icons prefix">account_circle</i>
+          <input id="movie_director" type="text" class="validate">
           <label for="movie_director">Director</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="movie_year" type="text" class="materialize-textarea validate"></textarea>
+          <i class="material-icons prefix">event</i>
+          <input id="movie_year" type="text" class="validate">
           <label for="movie_year">Year</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="movie_calification" type="text" class="materialize-textarea validate"></textarea>
-          <label for="movie_calification">Calification</label>
+          <i class="material-icons prefix">star</i>
+          <input id="movie_rating" type="text" class="validate">
+          <label for="movie_rating">Rating</label>
         </div>
       </div>
     </div>
     <div class="modal-footer">
-      <a class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Add</a>
     </div>
   </div>
- 
+
 
 </body>
 
