@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
     console.log('Connected to the MyCultureMusts database.');
   });
 
-  let sql = `SELECT Title, Year, Director, Calification FROM Movies Order by Id`;
+  let sql = `SELECT * FROM Movies Order by Id`;
 
   db.all(sql, [], (err, rows) => {
     if (err) {
@@ -24,7 +24,6 @@ router.get('/', function (req, res, next) {
 
   // close the database connection
   db.close();
-
 });
 
 router.post('/', (req, res) => {
@@ -40,7 +39,29 @@ router.post('/', (req, res) => {
       return console.log(err.message);
     }
     // get the last insert id
-    console.log(`A row has been inserted with rowid ${this.lastID}`);
+    res.send(this.lastID);
+  });
+
+
+  db.close();
+});
+
+router.delete('/', (req, res) => {
+  let db = new sqlite3.Database('./bbdd/MyCultureMusts.db', sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+      console.error(err.message);
+    }
+  });
+  console.log(req.params.id);
+  let data = JSON.parse(Object.keys(req.body)[0]);
+  // insert one row into the movies
+  console.log(data);
+  db.run(`DELETE FROM Movies WHERE id = ?`, data.id, function (err) {
+    if (err) {
+      return console.log(err.message);
+    }
+    // get the last insert id
+    return this.lastID;
   });
 
 
@@ -48,6 +69,8 @@ router.post('/', (req, res) => {
 
 
 });
+
+
 
 
 module.exports = router;
