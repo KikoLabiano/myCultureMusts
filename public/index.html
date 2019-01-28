@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="stylesheets/style.css">
   <script type="text/javascript" src="javascripts/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/materialize/materialize.min.js"></script>
+  <script type="text/javascript" src="javascripts/tmdb/apiTmdb.js"></script>
   <script type="text/javascript" src="javascripts/apiTable.js"></script>
   <script type="text/javascript" src="javascripts/init.js"></script>
 </head>
@@ -105,7 +106,7 @@
         <div class="row"></div>
         <div class="input-field col s12">
           <i class="material-icons prefix">movie</i>
-          <input id="movie_title" type="text" class="validate">
+          <input type="text" id="movie_title" class="autocomplete">
           <label for="movie_title">Title</label>
         </div>
       </div>
@@ -131,9 +132,14 @@
         </div>
       </div>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer addMovie">
       <a class="modal-action modal-close waves-effect waves-green btn-flat" id="addMovie">Add</a>
     </div>
+    <!-- <div class="modal-footer editMovie">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" id="addMovie">Edit</a>
+      <a class="modal-action modal-close waves-effect waves-light red btn-flat">Cancel</a>
+      <a class="modal-action modal-close waves-effect waves-light green btn-flat" id="btnDelete">Accept</a>
+    </div> -->
   </div>
   <div id="modalDelete" class="modal">
     <div class="modal-content">
