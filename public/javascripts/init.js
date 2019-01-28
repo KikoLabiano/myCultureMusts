@@ -2,9 +2,8 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
 
-
     //Initial load
-    tableModule.getElements($("#tblMovies tbody"), "movies");
+    tableModule.getElements("tblMovies", "movies");
     //tableModule.getElements($("#tblBooks tbody"),"books");
     //tableModule.getElements($("#tblMusic tbody"),"music");
 
