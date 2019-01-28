@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 function bindings() {
     $('.modal').modal();
-    $('.modal-action').on("click", function (e) {
+    $('#addMovie').on("click", function (e) {
         tableModule.insertElement("movies", JSON.stringify({
             movie_title: $("#movie_title").val(),
             movie_director: $("#movie_director").val(),

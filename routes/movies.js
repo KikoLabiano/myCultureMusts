@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
       return console.log(err.message);
     }
     // get the last insert id
-    res.send(this.lastID);
+    res.status(200).send((this.lastID).toString());
   });
 
 
@@ -55,13 +55,13 @@ router.delete('/', (req, res) => {
   console.log(req.params.id);
   let data = JSON.parse(Object.keys(req.body)[0]);
   // insert one row into the movies
-  console.log(data);
+  console.log(data,data.id);
   db.run(`DELETE FROM Movies WHERE id = ?`, data.id, function (err) {
     if (err) {
       return console.log(err.message);
     }
     // get the last insert id
-    return this.lastID;
+    res.status(200).send((data.id).toString());
   });
 
 

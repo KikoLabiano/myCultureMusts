@@ -5,14 +5,14 @@ var tableModule = (function () {
         getElements: (domElt, type) => {
             $.ajax({
                 type: 'get',
-                url: '/' + type,
+                url: '/api/' + type,
                 success: function (data) {
                     $(`#${domElt} tbody`).append(createRows(domElt, data));
                     $(`#${domElt} tbody tr`).click(function () {
                         let id = $(this).find(".rowHidden");
                         //Open modal
                         $(".modalDelete").modal();
-                        $("#btnDelete").on("click", function () {                            
+                        $("#btnDelete").on("click", function () {
                             deleteElement(domElt, type, id.html(), deleteRowsCbk);
                         })
                         //return false;
@@ -23,12 +23,15 @@ var tableModule = (function () {
         insertElement: (type, data, domElt) => {
             $.ajax({
                 type: 'post',
-                url: '/' + type,
+                url: '/api/' + type,
                 data: data,
                 dataType: "json",
-                success: function (data) {
+                success: function (d) {
                     console.log("Registro insertado");
-                    $(domElt).append(tableAPI.createRows(domElt, data));
+                    $(domElt).append(createRows(domElt, new Array({
+                        id: d,
+                        ...JSON.parse(data)
+                    })));
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
@@ -39,7 +42,7 @@ var tableModule = (function () {
 
     }
 
-    function createRows(domElt, data){
+    function createRows(domElt, data) {
         let rows = data.map(row => `<tr>${getCells(row, 'td')}</tr>`).join('');
         return rows;
     }
@@ -60,13 +63,15 @@ var tableModule = (function () {
     function deleteElement(domElt, type, idx, callback) {
         $.ajax({
             type: 'delete',
-            url: '/' + type,
-            data: JSON.stringify({id: idx}),
+            url: '/api/' + type,
+            data: JSON.stringify({
+                id: idx
+            }),
             dataType: "json",
             success: function (data) {
                 console.log("Registro eliminado");
-                if(typeof callback == "function") 
-                callback(domElt, id);
+                if (typeof callback == "function")
+                    callback(domElt, idx);
                 //$(domElt).append(tableAPI.createRows(domElt, data));
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -76,8 +81,10 @@ var tableModule = (function () {
         });
     }
 
-    function deleteRowsCbk(domElt,id){
-        alert("Callback;");
+    function deleteRowsCbk(domElt, idx) {
+        $("td").filter(function () {
+            return $(this).text() == idx;
+        }).closest("tr").remove();
     }
 
     return tableAPI;

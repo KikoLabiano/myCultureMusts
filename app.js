@@ -5,6 +5,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var moviesRouter = require('./routes/movies');
+// var booksRouter = require('./routes/books');
+// var musicRouter = require('./routes/music');
 
 var app = express();
 app.use(logger('dev'));
@@ -14,6 +16,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/movies', moviesRouter);
+app.use('/api/movies', moviesRouter);
+// app.use('/api/books', booksRouter);
+// app.use('/api/music', musicRouter);
 
 module.exports = app;
