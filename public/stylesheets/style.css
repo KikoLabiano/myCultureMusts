@@ -1,3 +1,18 @@
 .rowHidden{
   display:none;
 }
+.sliderCustom{
+  left: 45px;
+  width: 94%;
+}
+
+  .mat-slider-horizontal .mat-slider-thumb-label{
+    top: 10px !important;
+    transform: translateY(-26px) scale(0.1) rotate(225deg) !important;
+  }
+  .mat-slider-horizontal.cdk-focused .mat-slider-thumb-label {
+    transform: rotate(225deg) !important;
+  }
+  .mat-slider-thumb-label-text {
+    transform: rotate(135deg) !important;
+  }

@@ -7,6 +7,9 @@ $(document).ready(function () {
     //tableModule.getElements($("#tblBooks tbody"),"books");
     //tableModule.getElements($("#tblMusic tbody"),"music");
     
+    var ranges = document.querySelectorAll("input[type=range]");
+    M.Range.init(ranges);
+
     bindings();
 });
 
