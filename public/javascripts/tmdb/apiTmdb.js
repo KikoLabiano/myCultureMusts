@@ -24,12 +24,16 @@ var tmdbModule = (function () {
                             M.textareaAutoResize($('#movie_overview'));
                             //getCreditsById
                             fetchCall(`https://api.themoviedb.org/3/movie/${movie[0].id}/credits?api_key=ed3f1499acdc713141dc990dc1262022`)
-                            .then(function(credits){
-                                console.log(credits);
-                                let director = credits.crew.filter(obj => obj.job === "Director");
-                                $("#movie_director").val(director[0].name);
-                                M.updateTextFields();
-                            });                            
+                                .then(function (credits) {
+                                    console.log(credits);
+                                    let director = credits.crew.filter(obj => obj.job === "Director");
+                                    $("#movie_director").val(director[0].name);
+                                    M.updateTextFields();
+
+                                    //Add cast of the movie
+                                    addCast($("#ddlCast"), credits.cast);
+
+                                });
                         }
                     });
                 });
@@ -44,5 +48,18 @@ function fetchCall(callUrl) {
         .then((response) => {
             return response.json();
         });
+}
 
+function addCast(selectCast, arrayCast) {
+    arrayCast.forEach(c => {
+        selectCast.append(`<option value='${c.name}' data-icon=http://image.tmdb.org/t/p/w92${c.profile_path}>${c.name} (${c.character})</option`);
+
+        // selectCast.append($('<option>', {
+        //     value: '',
+        //     text: `${c.name} (${c.character})`
+        // })).attr("data-icon", `http://image.tmdb.org/t/p/w92/${c.profile_path}`);
+
+    });
+
+    $('select').formSelect();
 }

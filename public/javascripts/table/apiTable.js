@@ -13,7 +13,8 @@ var tableModule = (function () {
                     $(`#${domElt} tbody tr`).click(function () {
                         let id = $(this).find(".rowHidden");
                         //Open modal
-                        $(".modalDelete").modal();
+                        //$("#modalDelete").modal();
+                        //$("#modalDelete").modal('open');
                         $("#btnDelete").on("click", function () {
                             deleteElement(domElt, type, id.html(), deleteRowsCbk);
                         })

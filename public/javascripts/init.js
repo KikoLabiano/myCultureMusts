@@ -14,7 +14,12 @@ $(document).ready(function () {
 });
 
 function bindings() {
+    //Modal initialization
     $('#modalAdd').modal();
+    $('#modalDelete').modal();
+
+    //Select initialization
+    $('select').formSelect();
 
     $('#addMovie').on("click", function (e) {
         tableModule.insertElement("movies", JSON.stringify({
@@ -24,12 +29,6 @@ function bindings() {
             movie_rating: $("#movie_rating").val()
         }),$("#tblMovies tbody"));
     });  
-
-    $("#movie_title").autocomplete({
-        onAutocomplete: function(){
-            console.log($("#movie_title").val());
-        }
-    });
 
       $("#movie_title").on("keypress",function(){
         tmdbModule.searchByTitle($(this).val());
