@@ -52,7 +52,7 @@ function fetchCall(callUrl) {
 
 function addCast(selectCast, arrayCast) {
     arrayCast.forEach(c => {
-        selectCast.append(`<option value='${c.name}' data-icon='http://image.tmdb.org/t/p/w92${c.profile_path}>${c.name} (${c.character})'</option`);
+        selectCast.append(`<option value='${c.name}' data-icon=http://image.tmdb.org/t/p/w92${c.profile_path}>${c.name} (${c.character})</option`);
 
         // selectCast.append($('<option>', {
         //     value: '',
