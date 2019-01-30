@@ -15,6 +15,7 @@ $(document).ready(function () {
 
 function bindings() {
     $('#modalAdd').modal();
+
     $('#addMovie').on("click", function (e) {
         tableModule.insertElement("movies", JSON.stringify({
             movie_title: $("#movie_title").val(),

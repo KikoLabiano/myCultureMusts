@@ -20,7 +20,8 @@ var tmdbModule = (function () {
                             console.log(movie[0]);
                             $("#movie_year").val(movie[0].release_date.substring(0, 4));
                             $("#movie_rating").val(movie[0].vote_average);
-                            
+                            $("#movie_overview").val(movie[0].overview);
+                            M.textareaAutoResize($('#movie_overview'));
                             //getCreditsById
                             fetchCall(`https://api.themoviedb.org/3/movie/${movie[0].id}/credits?api_key=ed3f1499acdc713141dc990dc1262022`)
                             .then(function(credits){
