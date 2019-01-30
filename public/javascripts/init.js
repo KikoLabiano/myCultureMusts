@@ -21,6 +21,8 @@ function bindings() {
     //Select initialization
     $('select').formSelect();
 
+tmdbModule.getTranslations();
+
     $('#addMovie').on("click", function (e) {
         tableModule.insertElement("movies", JSON.stringify({
             movie_title: $("#movie_title").val(),

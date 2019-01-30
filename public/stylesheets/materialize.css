@@ -5589,7 +5589,7 @@ button.btn-floating {
   font-size: 16px;
   color: #26a69a;
   display: block;
-  line-height: 22px;
+  line-height: 55px;
   padding: 14px 16px;
 }
 
@@ -7265,10 +7265,10 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
 }
 
 .select-dropdown li img {
-  height: 40px;
-  width: 40px;
+  width: 50px;
   margin: 5px 15px;
   float: right;
+  border-radius: 15%;
 }
 
 .select-dropdown li.optgroup {
