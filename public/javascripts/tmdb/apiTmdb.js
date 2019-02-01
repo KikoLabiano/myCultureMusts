@@ -34,7 +34,7 @@ var tmdbModule = (function () {
         },
         getTranslations: async () => {
             let trans = await getTranslationCodes();
-            let transFiltered = trans.map((e)=>{
+            let transFiltered = trans.map((e) => {
                 return e.split('-')[0];
             });
             let lang = await getLanguages();

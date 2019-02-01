@@ -47,7 +47,7 @@ var tableModule = (function () {
 
     function createRows(domElt, data) {
         let rows = data.map(row => `<tr>${getCells(row, 'td')}</tr>`).join('');
-        $(rows).each(function(){
+        $(rows).each(function () {
             console.log($(this).html());
         });
         return rows;
