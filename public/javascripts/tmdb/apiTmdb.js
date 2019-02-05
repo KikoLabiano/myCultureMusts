@@ -34,6 +34,7 @@ var tmdbModule = (function () {
         },
         getTranslations: async () => {
             let trans = await getTranslationCodes();
+            console.log(trans);
             let transFiltered = trans.map((e) => {
                 return e.split('-')[0];
             });
@@ -42,6 +43,20 @@ var tmdbModule = (function () {
             var filteredLang = lang.filter(function (l) {
                 return transFiltered.indexOf(l.iso_639_1.toLowerCase()) > -1;
             });
+            // ddlLanguage
+            // https://www.countryflags.io/be/shiny/32.png
+
+            $("#ddlLanguage")
+                .find('option')
+                .remove()
+                .end();
+
+            filteredLang.forEach(l => {      
+                console.log(`https://www.countryflags.io/${l.iso_639_1}/shiny/32.png`);          
+                $("#ddlLanguage").append(`<option value='${l.iso_639_1}' data-icon=https://www.countryflags.io/${l.iso_639_1}/shiny/32.png>${l.english_name}</option`);
+            });
+
+            $('select').formSelect();
             console.log(filteredLang);
         }
     }
