@@ -16,3 +16,10 @@
   .mat-slider-thumb-label-text {
     transform: rotate(135deg) !important;
   }
+
+td.notes {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

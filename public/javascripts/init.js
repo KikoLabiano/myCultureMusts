@@ -20,7 +20,6 @@ function bindings() {
 
     //Select initialization
     $('select').formSelect();
-
     tmdbModule.getTranslations($("#ddlLanguage"));
 
     $('#addMovie').on("click", function (e) {
@@ -28,7 +27,8 @@ function bindings() {
             movie_title: $("#movie_title").val(),
             movie_director: $("#movie_director").val(),
             movie_year: $("#movie_year").val(),
-            movie_rating: $("#movie_rating").val()
+            movie_rating: $("#movie_rating").val(),
+            movie_notes: $("#movie_notes").val()
         }), $("#tblMovies tbody"));
     });
 

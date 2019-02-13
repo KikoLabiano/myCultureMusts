@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
   });
   let data = JSON.parse(Object.keys(req.body)[0]);
   // insert one row into the movies
-  db.run(`INSERT INTO Movies(Title,Director,Year,Calification) VALUES(?,?,?,?)`, data.movie_title, data.movie_director, data.movie_year, data.movie_rating, function (err) {
+  db.run(`INSERT INTO Movies(Title,Director,Year,Rating,Notes) VALUES(?,?,?,?,?)`, data.movie_title, data.movie_director, data.movie_year, data.movie_rating, data.notes, function (err) {
     if (err) {
       return console.log(err.message);
     }

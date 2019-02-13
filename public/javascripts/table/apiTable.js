@@ -17,9 +17,10 @@ var tableModule = (function () {
                         //$("#modalDelete").modal('open');
                         $("#btnDelete").on("click", function () {
                             deleteElement(domElt, type, id.html(), deleteRowsCbk);
-                        })
+                        });                        
                         //return false;
                     });
+                    $('.tooltipped').tooltip();
                 }
             });
         },
@@ -55,13 +56,40 @@ var tableModule = (function () {
 
     function getCells(data, type) {
         let cells = "";
+        let arrData = [];
         // return `<${type} class='rowHidden'>${data.Id}</${type}><${type}>${data.Director}</${type}><${type}>${data.Year}</${type}><${type}>${data.Director}</${type}><${type}>${data.Rating}</${type}><${type}><a class="modal-trigger" data-target="modalDelete"><i class="material-icons right delete">delete</i></a></${type}>`;
-        for(d of data){
-            
+        for(let [key, value] of Object.entries(data)) {
+            if(key.toLowerCase().includes("id")){
+                arrData[0] = value;
+            }
+            else if(key.toLowerCase().includes("title")){
+                arrData[1] = value;
+            }
+            else if(key.toLowerCase().includes("year")){
+                arrData[2] = value;
+            }
+            else if(key.toLowerCase().includes("director")){
+                arrData[3] = value;
+            }
+            else if(key.toLowerCase().includes("rating")){
+                arrData[4] = value;
+            }
+            else if(key.toLowerCase().includes("notes")){
+                if(value!==null){
+                    arrData[5] = value;
+                }
+                else{
+                    arrData[5] = "";
+                }
+            }
         }
-        Object.values(data).map((c, i) => {
+
+        arrData.map((c, i) => {
             if (i === 0) {
                 cells += `<${type} class='rowHidden'>${c}</${type}>`;
+            } 
+            else if (i === 5) {
+                cells += `<${type} class='notes tooltipped' data-position="top" data-tooltip="${c != '' ? c : 'No notes'}">${c}</${type}>`;
             } else {
                 cells += `<${type}>${c}</${type}>`;
             }
