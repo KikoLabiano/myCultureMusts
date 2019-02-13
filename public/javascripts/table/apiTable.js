@@ -46,15 +46,19 @@ var tableModule = (function () {
 
 
     function createRows(domElt, data) {
-        let rows = data.map(row => `<tr>${getCells(row, 'td')}</tr>`).join('');
-        $(rows).each(function () {
-            console.log($(this).html());
-        });
-        return rows;
+        return data.map(row => `<tr>${getCells(row, 'td')}</tr>`).join('');
+        // $(rows).each(function () {
+        //     console.log($(this).html());
+        // });
+        // return rows;
     }
 
     function getCells(data, type) {
         let cells = "";
+        // return `<${type} class='rowHidden'>${data.Id}</${type}><${type}>${data.Director}</${type}><${type}>${data.Year}</${type}><${type}>${data.Director}</${type}><${type}>${data.Rating}</${type}><${type}><a class="modal-trigger" data-target="modalDelete"><i class="material-icons right delete">delete</i></a></${type}>`;
+        for(d of data){
+            
+        }
         Object.values(data).map((c, i) => {
             if (i === 0) {
                 cells += `<${type} class='rowHidden'>${c}</${type}>`;
@@ -88,7 +92,7 @@ var tableModule = (function () {
     }
 
     function deleteRowsCbk(domElt, idx) {
-        $("td").filter(function () {
+        $(`#${domElt}`).find("td").filter(function () {
             return $(this).text() == idx;
         }).closest("tr").remove();
     }

@@ -32,7 +32,7 @@ var tmdbModule = (function () {
                 }
             });
         },
-        getTranslations: async () => {
+        getTranslations: async (domElt) => {
             let trans = await getTranslationCodes();
             console.log(trans);
             let transFiltered = trans.map((e) => {
@@ -46,14 +46,14 @@ var tmdbModule = (function () {
             // ddlLanguage
             // https://www.countryflags.io/be/shiny/32.png
 
-            $("#ddlLanguage")
+            domElt
                 .find('option')
                 .remove()
                 .end();
 
             filteredLang.forEach(l => {      
                 console.log(`https://www.countryflags.io/${l.iso_639_1}/shiny/32.png`);          
-                $("#ddlLanguage").append(`<option value='${l.iso_639_1}' data-icon=https://www.countryflags.io/${l.iso_639_1}/shiny/32.png>${l.english_name}</option`);
+                domElt.append(`<option value='${l.iso_639_1}' data-icon=https://www.countryflags.io/${l.iso_639_1}/shiny/32.png>${l.english_name}</option`);
             });
 
             $('select').formSelect();
